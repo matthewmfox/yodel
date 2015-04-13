@@ -1,0 +1,55 @@
+<!-- 
+This is the layout for Yodel's Mountain page. The page header will display:
+  - The mounatain's name
+  - A "Create Trip" button
+  - A picture of the mountain
+
+The page body will display:
+  - Basic info
+  - Difficulty level
+  - Recommended supplies
+  - Reviews and comments
+  - A map showing where the climb is (with accompanying directions)
+--> 
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Mountain Page</title>
+
+    <link type="text/css" href="yodel/mountainPage/style.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="yodel/jquery-1.9.0.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="mainContentColumn">
+
+      <div id="mountainTopSection">
+        <div id="mountainCoverPhoto">
+          <div id="mountainNameSection">
+            <h1>
+              <span id="mtnNameText">Mountain Page</span>
+            </h1>
+          </div>
+          <div id="createTripSection">
+            <button id="createTripBtn">Create Trip</button>
+          </div>
+        </div>
+      </div>
+      <div id="infoSection">
+        <div id="textContent">
+          <div id="staticText"></div>
+          <div id="reviewText"></div>
+        </div>
+        <div id="locationContent">
+          <div id="mapContent">
+            <div id="mapImg"></div>
+            <div id="directionsText"></div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
