@@ -9,4 +9,38 @@
 table, th, td {
 	    border: 1px solid black;
 	    border-collapse: collapse;
+	    z-index: 1;
+	    color: white;
+}
+
+table{
+    position: absolute;
+    top: 60px;
+    left: 12.5%;
+}
+
+#tableBackdrop{
+    width: 80%;
+    height: 100%;
+    align: center;
+    z-index: -2;
+    background-color:grey;
+    opacity: 0.85;
+    left: 10%;
+    top: 0%;
+    position: absolute;
+}
+
+td a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+#resultNum{
+    position: absolute;
+    left: 12.5%;
+    top: 20px;
+    color: white;
 }
