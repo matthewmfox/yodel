@@ -160,8 +160,8 @@
                     $("#whereLabel").hide();
                     numPeople.spinner( "enable" );
                     numAdditionalPeople.spinner( "enable");
-                    $( "#fromDate" ).prop('disabled', false) ;
-                    $( "#toDate" ).prop('disabled', false) ;
+                    toDate.datepicker( "option", "disabled" , false );
+                    fromDate.datepicker(  "option", "disabled" , false );
                     $( "#location" ).prop('disabled', false) ;
                 } else {
                     $("#findPeople").hide()
