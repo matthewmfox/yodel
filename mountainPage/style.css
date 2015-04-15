@@ -1,0 +1,109 @@
+/** General Page Styling **/
+html, body, button {
+	display: block;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+section {
+	width: 80%;
+	height: 95%;
+	margin: 0 auto;
+	background-color: yellow;
+}
+
+/** Mountain "Cover Photo" Section Styling **/ 
+#mtnTopSection {
+	display: inline-table;
+	width: 100%;
+	padding-top: 60px;
+}
+
+#mtnCoverPhoto {
+	width: 100%;
+	position: relative;
+}
+
+#mtnLabelContainer {
+	display: inline-block;
+	background-color: blue;
+	width: 100%;
+	height: 100px;
+	position: relative;
+}
+
+#mtnNameSection {
+	float: left;
+	padding: 10px 25px 10px;
+	vertical-align: middle;
+	background-color: red;
+	height: 80px;
+	position: relative;
+}
+
+#mtnNameText {
+	display: inline-block;
+	vertical-align: middle;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: white;
+    position: relative;
+  	top: 50%;
+  		-webkit-transform: translateY(-50%);
+  		-ms-transform: translateY(-50%);
+  		transform: translateY(-50%);
+}
+
+/** Create Trip Button **/
+#createTripSection {
+	float: left;
+	padding: 10px 0;
+	vertical-align: middle;
+	background-color: green;
+	height: 80px;
+	position: relative;
+}
+
+#createTripBtn {
+	display: inline-block;
+	vertical-align: middle;
+    font-size: 1.5em;
+    position: relative;
+  	top: 50%;
+  		-webkit-transform: translateY(-50%);
+  		-ms-transform: translateY(-50%);
+  		transform: translateY(-50%);
+}
+
+/** Information Section Styling **/
+#infoSection {
+
+}
+
+#textContent {
+
+}
+
+#staticText {
+
+}
+
+#reviewText {
+
+}
+
+/** Geo-Location Styling **/
+#locationContent {
+
+}
+
+#mapContent {
+
+}
+
+#mapImg {
+
+}
+
+#directionsText {
+
+}

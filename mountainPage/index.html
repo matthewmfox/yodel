@@ -17,30 +17,31 @@ The page body will display:
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Mountain Page</title>
 
-    <link type="text/css" href="yodel/mountainPage/style.css" rel="stylesheet" />
-
-    <script type="text/javascript" src="yodel/jquery-1.9.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="../jquery-1.9.0.min.js"></script>
   </head>
 
   <body>
 
-    <div id="mainContentColumn">
-
-      <div id="mountainTopSection">
-        <div id="mountainCoverPhoto">
-          <div id="mountainNameSection">
-            <h1>
-              <span id="mtnNameText">Mountain Page</span>
-            </h1>
-          </div>
-          <div id="createTripSection">
-            <button id="createTripBtn">Create Trip</button>
+    <section>
+    
+      <div id="mtnTopSection">
+        <div id="mtnCoverPhoto">
+          <div id="mtnLabelContainer">
+            <div id="mtnNameSection">
+              <span id="mtnNameText">Mountain Name</span>
+            </div>
+            <div id="createTripSection">
+              <button id="createTripBtn">Create Trip</button>
+            </div>
           </div>
         </div>
       </div>
       <div id="infoSection">
         <div id="textContent">
-          <div id="staticText"></div>
+          <div id="staticText">
+            
+          </div>
           <div id="reviewText"></div>
         </div>
         <div id="locationContent">
@@ -50,6 +51,7 @@ The page body will display:
           </div> 
         </div>
       </div>
-    </div>
+    
+    </section>
   </body>
 </html>
