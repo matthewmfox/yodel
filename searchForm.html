@@ -10,7 +10,6 @@
     <title>Search Form</title>
 
     <!-- Load style sheets -->
-    <link rel="stylesheet" type="text/css" href="mainLayout.css" />
     <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
@@ -18,15 +17,53 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var whoCheckBox = $("#whoCheckBox").button();
-            var whenCheckBox = $("#whenCheckBox").button();
-            var whereCheckBox = $("#whereCheckBox").button();
+            var whoCheckBox = $("#whoCheckBox");
+            var whenCheckBox = $("#whenCheckBox");
+            var whereCheckBox = $("#whereCheckBox");
 
             var doPretendThingsWithSearchResults = function() {
                 alert("Hello");
             }
 
+            //var toolbar  = $("#toolbar").toolbar();
+
+            var toolbarFunction = function() {
+                $("#profile").button({
+                    icons: {
+                        primary: "ui-icon-person"
+                    },
+                    text: false
+                });
+
+                $("#logo").button({
+                    icons: {
+                        primary: "ui-icon-image"
+                    },
+                    text: true
+                });
+                $("#messages").button({
+                    icons: {
+                        primary: "ui-icon-mail-closed"
+                    },
+                    text: false
+                });
+
+                $("#settings").button({
+                    icons: {
+                        primary: "ui-icon-gear"
+                    },
+                    text: false
+                });
+               
+                $("#notifications").button({
+                    icons: {
+                        primary: "ui-icon-info"
+                    },
+                    text: false
+                });
+            }
             
+            toolbarFunction();
 
             
             var dialog = $( "#dialog-form" ).dialog({
@@ -153,11 +190,13 @@
 
             var changeFormInputs  = function (selectedItem) {
                 if (selectedItem == "Plan") {
-                    $("#findPeople").show("fade", "fast")
-                    //can't hide the buttons, so hide labels
-                    $("#whoLabel").hide();
-                    $("#whenLabel").hide();
-                    $("#whereLabel").hide();
+                    $("#findPeople").show("fade", "fast");
+                    $("#findPeople").css("display", "inline-block");
+                    $("#findPeople").css("margin-left", "5px");
+                    var hideItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
+                    for (i=0; i<hideItems.length; i++) {
+                        $(hideItems[i]).hide();
+                    }
                     numPeople.spinner( "enable" );
                     numAdditionalPeople.spinner( "enable");
                     toDate.datepicker( "option", "disabled" , false );
@@ -165,15 +204,15 @@
                     $( "#location" ).prop('disabled', false) ;
                 } else {
                     $("#findPeople").hide()
-                    $("#whoLabel").show();
-                    $("#whenLabel").show();
-                    $("#whereLabel").show();
+                    var showItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
+                    for (i=0; i<showItems.length; i++) {
+                        $(showItems[i]).show();
+                    }
                     peopleFunction();
                     calendarFunction();
                     locationFunction();
                 }
             }
-
 
             findPlanDropDown.selectmenu({
               select: function( event, ui ) {
@@ -191,8 +230,15 @@
       width: 200px;
     }
 
+    #toolbar {
+        padding: 4px;
+        display: inline-block;
+        width: 99%;
+    }
+
     #numPeople, #numAdditionalPeople {
         width: 50px;
+        margin: 3px;
     }
 
     #toDate, #fromDate {
@@ -213,6 +259,13 @@
         
     }
 
+    #goButton {
+        width: 20%;
+        left: 40%;
+        font-weight: bold;
+        font-size: xx-large;
+    }
+
 
     </style>
 
@@ -220,7 +273,21 @@
 
 <body>
 
-<button id="goButton">Go</button>
+
+<div id="toolbar" class="ui-widget-header ui-corner-all">
+    <button id="logo">Yodel Logo</button>
+    <input type="text" id="search" value="Search" style="font-style:italic; margin-left: 20px;" ></input>
+    <!--Because of the float, the items go in backwards-->
+    <button id="settings" style="float:right">Settings</button>
+    <button id="notifications" style="float:right">Notifications</button>
+    <button id="messages" style="float:right">Messages</button>
+    <button id="profile" style="float:right">Profile</button>
+    
+</div>
+<br>
+<br>
+
+<button id="goButton">Start/Join a Trip!</button>
 
 <div id="dialog-form" title="Let's go Exploring">
 <form id="searchForm">
@@ -236,7 +303,7 @@
     <!--Who-->
     <label>Who: </label> <input id="whoCheckBox" type="checkbox" name="who" checked><label for="whoCheckBox" id="whoLabel">Anyone </label>
     <fieldset>
-        <input type="text" id="numPeople" name="numPeople" title="people in my party (including myself)"><div id="findPeople"><label for="numAdditionalPeople"> looking for</label> <input type="text" id="numAdditionalPeople" name="numAdditionalPeople" ><label for="numAdditionalPeople"> more </label> </div>
+        <input type="text" id="numPeople" name="numPeople" title="people in my party (including myself)"><div id="findPeople"><label for="numAdditionalPeople">looking for</label> <input type="text" id="numAdditionalPeople" name="numAdditionalPeople" ><label for="numAdditionalPeople"> more </label> </div>
     </fieldset>
     
 
