@@ -1,6 +1,39 @@
 #mountainPic {
 	width: 50%;
 	height: auto;
+	position: absolute;
+	left: 300px;
+
+}
+
+#name {
+	position: absolute;
+	left: 310px;
+	top: 460px;
+}
+
+#join {
+	position: absolute;
+	left: 900px;
+	top: 440px;
+}
+
+#party {
+	position: absolute;
+	left: 300px;
+	top: 500px;
+}
+
+#comments {
+	position: absolute;
+	left: 300px;
+	top: 600px;
+}
+
+#infoDiv {
+	position: absolute;
+	left: 700px;
+	top: 600px;
 }
 
 .profilePic {
