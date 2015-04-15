@@ -6,9 +6,8 @@ html, body, button {
 
 section {
 	width: 80%;
-	height: 95%;
+	padding-bottom: 10px;
 	margin: 0 auto;
-	background-color: yellow;
 }
 
 /** Mountain "Cover Photo" Section Styling **/ 
@@ -35,7 +34,7 @@ section {
 	float: left;
 	padding: 10px 25px 10px;
 	vertical-align: middle;
-	background-color: red;
+	background-color: blue;
 	height: 80px;
 	position: relative;
 }
@@ -43,9 +42,9 @@ section {
 #mtnNameText {
 	display: inline-block;
 	vertical-align: middle;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
-    background-color: white;
+    background-color: blue;
     position: relative;
   	top: 50%;
   		-webkit-transform: translateY(-50%);
@@ -58,7 +57,7 @@ section {
 	float: left;
 	padding: 10px 0;
 	vertical-align: middle;
-	background-color: green;
+	background-color: blue;
 	height: 80px;
 	position: relative;
 }
@@ -76,11 +75,36 @@ section {
 
 /** Information Section Styling **/
 #infoSection {
-
+	background-color: red;
+	width: 95%;
+	height: 95%;
+	margin: 30px auto; 
 }
 
 #textContent {
+	display: inline-table;
+	height: 98%;
+	width: 55%;
+	margin: 10px auto 10px 10px;
+	background-color: yellow;
+}
 
+#infoFieldHeader {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#infoFieldHeader:after {
+	content: ".";
+  	display: block;
+ 	height: 10;
+  	clear: both;
+  	visibility: hidden;
+}
+
+#infoField {
+	font-size: 1.5em;
+	margin: auto 20px;
 }
 
 #staticText {
