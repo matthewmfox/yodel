@@ -1,4 +1,4 @@
-.titles td{
+.titles th{
     padding: 20px;
 }
 
@@ -41,6 +41,20 @@ td a{
 #resultNum{
     position: absolute;
     left: 12.5%;
-    top: 20px;
+    top: 15px;
     color: white;
+    font-size: 200%
 }
+#edit{
+    position: absolute;
+    left: 78%;
+    top: 15px;
+    color: white;
+    font-size: 200%    
+}
+a{
+    color: white
+}
+
+
+

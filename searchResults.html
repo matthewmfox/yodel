@@ -4,22 +4,40 @@
     <title>Yodel: Search Results </title>
     <link rel="stylesheet" type="text/css" href="resultsStyle.css" />
     <script type="text/javascript" src="jquery-1.9.0.min.js"> </script>
+    <script src="sorttable.js"> </script>
     <script type="text/javascript">
 	$(document).ready( function () {
-	    
+	    var table = $('table');
+	    $('#tripName').wrapInner('<span title="sort this column"/>').each(function(){
+	        var th = $(this), thIndex = th.index(), inverse = false;
+	 	th.click(function(){
+			table.find('td').filter(function(){
+			    return $(this).index() === thIndex;
+			}).sortElements(function(a, b){
+			    return $.text([a]) > $.text([b]) ? inverse ? -1 : 1 : inverse ? 1 : -1;
+			}, function(){
+			    return this.parentNode;
+			});
+		        inverse = !inverse;
+		});
+	    });
 	})
     </script>
 </head>
 <body background = "mtn.jpg">
-    <div id="resultNum"><font size="12"> 4 Results Found</font></div>
-    <table style="width:75%" align="center" border="1">
+    <div id="resultNum"> 4 Results Found </div>
+    <div id="edit"><a href="searchForm.html"> Edit Search </a></div>
+    <table style="width:75%" align="center" border="1" class ="sortable" id="resultTable">
+    <thead>
     <tr class="titles">
-	<td><b>Trip Name</b></td>
-	<td><b>Location</b></td> 
-	<td><b>Difficulty</b></td>
-	<td><b>Dates</b></td>
-	<td><b>Group</b></td>
+	<th id="tripName"><b>Trip Name</b></th>
+	<th id="location"><b>Location</b></th> 
+	<th id="difficulty"><b>Difficulty</b></th>
+	<th id="dates"><b>Dates</b></th>
+	<th id="group"><b>Group</b></th>
     </tr>
+    </thead>
+    <tbody>
     <tr class="results">
 	<td><a href="sb_tripPage.html">Spring Breakkkk</a></td>
 	<td>Puerto Plata, DR</td> 
@@ -48,6 +66,7 @@
 	<td>5/5/15 - 5/10/15</td>
 	<td>1/50</td>
     </tr>
+    </tbody>
     </table>
     <div id="tableBackdrop"></div>
 </body>
