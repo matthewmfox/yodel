@@ -41,7 +41,6 @@ section {
 
 #mtnNameText {
 	display: inline-block;
-	vertical-align: middle;
     font-size: 2.5em;
     font-weight: bold;
     background-color: blue;
@@ -64,7 +63,6 @@ section {
 
 #createTripBtn {
 	display: inline-block;
-	vertical-align: middle;
     font-size: 1.5em;
     position: relative;
   	top: 50%;
@@ -83,10 +81,13 @@ section {
 
 #textContent {
 	display: inline-table;
-	height: 98%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	height: 97%;
 	width: 55%;
-	margin: 10px auto 10px 10px;
+	margin-left: 10px;
 	background-color: yellow;
+	position: relative;
 }
 
 #infoFieldHeader {
