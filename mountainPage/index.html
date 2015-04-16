@@ -18,11 +18,17 @@ The page body will display:
     <title>Mountain Page</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="../jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../jquery-ui-1.11.4.custom/jquery-ui.min.css">
 
     <script type="text/javascript" src="../jquery-1.9.0.min.js"></script>
-    <script src="../jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-    <script src="../jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#createTripBtn").button();
+        $("#postReviewBtn").button();
+      })
+    </script>
   </head>
 
   <body>
@@ -36,7 +42,7 @@ The page body will display:
               <span id="mtnNameText">Mountain Name</span>
             </div>
             <div id="createTripSection">
-              <button id="createTripBtn">Create Trip</button>
+              <input type="button" value="Create Trip" id="createTripBtn">
             </div>
           </div>
         </div>
@@ -49,9 +55,15 @@ The page body will display:
           <div id="infoField">Here is the mountain's difficulty.</div><p>
           <div id="infoFieldHeader">Supplies: </div>
           <div id="infoField">Here are the supplies you should bring.</div><p>
-          <div id="reviewText">
-            <div id="infoFieldHeader">Reviews: </div>
-          </div>
+          <div id="infoFieldHeader">Reviews: </div>
+          <table id="reviewTable">
+            <tr id = "blankTextBox">
+              <td><textarea id="reviewInput" rows="10" cols="80"></textarea></td>
+            </tr>
+            <tr>
+              <td><input type="button" value="Post" id="postReviewBtn"></td>
+            </tr>
+          </table>
         </div>
         <div id="locationContent">
           <div id="mapContent">
