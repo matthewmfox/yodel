@@ -23,6 +23,7 @@ The page body will display:
     <script type="text/javascript" src="../jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="../jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="../jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $("#createTripBtn").button();
@@ -57,11 +58,17 @@ The page body will display:
           <div id="infoField">Here are the supplies you should bring.</div><p>
           <div id="infoFieldHeader">Reviews: </div>
           <table id="reviewTable">
-            <tr id = "blankTextBox">
-              <td><textarea id="reviewInput" rows="10" cols="80"></textarea></td>
+            <tr>
+              <td class="contentContainer">
+                <img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">
+              </td>
+              <td class="contentContainer">This is my review for the mountain.</td>
+            </tr>
+            <tr id="blankTextBox">
+              <td colspan="2"><textarea id="reviewInput" rows="10" cols="80"></textarea></td>
             </tr>
             <tr>
-              <td><input type="button" value="Post" id="postReviewBtn"></td>
+              <td colspan="2"><input type="button" value="Post" id="postReviewBtn"></td>
             </tr>
           </table>
         </div>
