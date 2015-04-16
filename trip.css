@@ -1,45 +1,73 @@
 #mountainPic {
-	width: 50%;
-	height: auto;
+	width: 80%;
+	height: 45%;
 	position: absolute;
-	left: 300px;
+	left: 10%;
 
 }
 
 #name {
 	position: absolute;
-	left: 310px;
-	top: 460px;
+	left: 11%;
+	top: 42%;
 }
 
 #join {
 	position: absolute;
-	left: 900px;
-	top: 440px;
+	right: 11%;
+	top: 40%;
 }
 
 #party {
 	position: absolute;
-	left: 300px;
-	top: 500px;
+	align: center;
+	left: 25%;
+	right: 21%;
+	bottom: 55%;
 }
 
 #comments {
+	padding: 20px;
 	position: absolute;
-	left: 300px;
-	top: 600px;
+	left: 1%;
+	right: 51%;
+	top: 50%;
+	bottom: 1%;
+	background-color:white;
+	opacity: 0.85;
 }
 
 #infoDiv {
+	padding: 20px;
 	position: absolute;
-	left: 700px;
-	top: 600px;
+	left: 51%;
+	right: 1%;
+	top: 50%;
+	bottom: 1%;
+	background-color:white;
+	opacity: 0.85;
 }
 
 .profilePic {
-	width: auto;
+	width: 10%;
 	height: 10%;
 }
-table {
-	border-collapse: collapse;
+table, th, td {
+	    border: 1px solid black;
+	    padding: 20px;
+	    border-collapse: collapse;
+	    z-index: 1;
+	    color: black;
+}
+
+#body{
+    width: 80%;
+    height: 100%;
+    align: center;
+    z-index: -2;
+    background-color:grey;
+    opacity: 0.85;
+    left: 10%;
+    top: 0%;
+    position: absolute;
 }
