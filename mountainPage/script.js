@@ -3,7 +3,43 @@ $(function () {
 	var reviewTable = document.getElementById("reviewTable");
 	var standInPhoto = '<img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">'
 	var reviewText;
+	var toolbarFunction = function() {
+                $("#profile").button({
+                    icons: {
+                        primary: "ui-icon-person"
+                    },
+                    text: false
+                });
 
+                $("#logo").button({
+                    icons: {
+                        primary: "ui-icon-image"
+                    },
+                    text: true
+                });
+                $("#messages").button({
+                    icons: {
+                        primary: "ui-icon-mail-closed"
+                    },
+                    text: false
+                });
+
+                $("#settings").button({
+                    icons: {
+                        primary: "ui-icon-gear"
+                    },
+                    text: false
+                });
+               
+                $("#notifications").button({
+                    icons: {
+                        primary: "ui-icon-info"
+                    },
+                    text: false
+                });
+            }
+            
+            toolbarFunction();
 	$(postReviewBtn).click( function() {
 		// Get the review from the textbox.
 		reviewText = $("#reviewInput").val();

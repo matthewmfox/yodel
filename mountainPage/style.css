@@ -172,3 +172,9 @@ section {
 
 }
 
+
+#toolbar {
+        padding: 4px;
+        display: inline-block;
+        width: 99%;
+}
