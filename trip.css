@@ -150,3 +150,12 @@ table, th, td {
     top: 40.6%;
     background-color:#0078ae;
 }
+
+#toolbar {
+        padding: 4px;
+	position: absolute;
+        display: inline-block;
+        width: 80%;
+	left: 9.75%;
+	z-index: 3000;
+}
