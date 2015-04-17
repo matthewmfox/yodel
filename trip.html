@@ -7,7 +7,45 @@
     <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
     <script type="text/javascript" src="mountainPage/script.js"></script>
     <script>
-    	$(document).ready(function() {
+	$(document).ready(function() {
+		var toolbarFunction = function() {
+                $("#profile").button({
+                    icons: {
+                        primary: "ui-icon-person"
+                    },
+                    text: false
+                });
+
+                $("#logo").button({
+                    icons: {
+                        primary: "ui-icon-image"
+                    },
+                    text: true
+                });
+                $("#messages").button({
+                    icons: {
+                        primary: "ui-icon-mail-closed"
+                    },
+                    text: false
+                });
+
+                $("#settings").button({
+                    icons: {
+                        primary: "ui-icon-gear"
+                    },
+                    text: false
+                });
+               
+                $("#notifications").button({
+                    icons: {
+                        primary: "ui-icon-info"
+                    },
+                    text: false
+                });
+            }
+            
+            toolbarFunction();
+
     		var btnJoinTrip = $( "#btnJoinTrip" ).button();
     		var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
     		
@@ -18,6 +56,19 @@
 </head>
 
 <body background= "mtn.jpg">
+
+<div id="toolbar" class="ui-widget-header ui-corner-all">
+    <button id="logo">Yodel Logo</button>
+    <input type="text" id="search" value="Search" style="font-style:italic; margin-left: 20px;" ></input>
+    <!--Because of the float, the items go in backwards-->
+    <button id="settings" style="float:right">Settings</button>
+    <button id="notifications" style="float:right">Notifications</button>
+    <button id="messages" style="float:right">Messages</button>
+    <button id="profile" style="float:right">Profile</button>
+    
+    </div>
+    <br>
+    <br>
 
 <!-- 	insert homebar -->
 

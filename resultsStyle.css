@@ -15,7 +15,7 @@ table, th, td {
 
 table{
     position: absolute;
-    top: 60px;
+    top: 120px;
     left: 12.5%;
 }
 
@@ -25,7 +25,7 @@ table{
     align: center;
     z-index: -2;
     background-color:grey;
-    opacity: 0.85;
+    opacity: 0.95;
     left: 10%;
     top: 0%;
     position: absolute;
@@ -41,14 +41,14 @@ td a{
 #resultNum{
     position: absolute;
     left: 12.5%;
-    top: 15px;
+    top: 75px;
     color: white;
     font-size: 200%
 }
 #edit{
     position: absolute;
     left: 78%;
-    top: 15px;
+    top: 75px;
     color: white;
     font-size: 200%    
 }
@@ -57,4 +57,10 @@ a{
 }
 
 
-
+#toolbar {
+        padding: 4px;
+	position: absolute;
+        display: inline-block;
+        width: 80%;
+	left: 9.75%;
+}

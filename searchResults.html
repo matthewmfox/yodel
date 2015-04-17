@@ -5,9 +5,53 @@
     <link rel="stylesheet" type="text/css" href="resultsStyle.css" />
     <script type="text/javascript" src="jquery-1.9.0.min.js"> </script>
     <script type="text/javascript" src="searchForm.js"></script>
+    <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
     <script src="sorttable.js"> </script>
     <script type="text/javascript">
 	$(document).ready( function () {
+
+		var toolbarFunction = function() {
+                $("#profile").button({
+                    icons: {
+                        primary: "ui-icon-person"
+                    },
+                    text: false
+                });
+
+                $("#logo").button({
+                    icons: {
+                        primary: "ui-icon-image"
+                    },
+                    text: true
+                });
+                $("#messages").button({
+                    icons: {
+                        primary: "ui-icon-mail-closed"
+                    },
+                    text: false
+                });
+
+                $("#settings").button({
+                    icons: {
+                        primary: "ui-icon-gear"
+                    },
+                    text: false
+                });
+               
+                $("#notifications").button({
+                    icons: {
+                        primary: "ui-icon-info"
+                    },
+                    text: false
+                });
+            }
+            
+            toolbarFunction();
+
+
 	    var table = $('table');
 	    $('#tripName').wrapInner('<span title="sort this column"/>').each(function(){
 	        var th = $(this), thIndex = th.index(), inverse = false;
@@ -26,6 +70,21 @@
     </script>
 </head>
 <body background = "mtn.jpg">
+
+    <div id="toolbar" class="ui-widget-header ui-corner-all">
+    <button id="logo">Yodel Logo</button>
+    <input type="text" id="search" value="Search" style="font-style:italic; margin-left: 20px;" ></input>
+    <!--Because of the float, the items go in backwards-->
+    <button id="settings" style="float:right">Settings</button>
+    <button id="notifications" style="float:right">Notifications</button>
+    <button id="messages" style="float:right">Messages</button>
+    <button id="profile" style="float:right">Profile</button>
+    
+    </div>
+    <br>
+    <br>
+
+
     <div id="resultNum"> 4 Results Found </div>
     <div id="edit"><a onclick="loadSearchData()" href="searchForm.html"> Edit Search </a></div>
     <table style="width:75%" align="center" border="1" class ="sortable" id="resultTable">
@@ -47,21 +106,21 @@
 	<td>4/9</td>
     </tr>
     <tr class="results">
-	<td><a href="ka_tripPage.html">Kresge Auditorium Climb</a></td>
+	<td><a href="trip.html">Kresge Auditorium Climb</a></td>
 	<td>Boston, MA</td> 
 	<td>Class 5.2</td>
 	<td>3/24/15 - 3/30/15</td>
 	<td>2/4</td>
     </tr>
     <tr class="results">
-	<td><a href="ky_tripPage.html">KilamanjarYoooooooo</a></td>
+	<td><a href="trip.html">KilamanjarYoooooooo</a></td>
 	<td>Tanzania, Africa</td> 
 	<td>Class 5.5</td>
 	<td>4/2/15 - 4/12/15</td>
 	<td>16/19</td>
     </tr>
     <tr class="results">
-	<td><a href="et_tripPage.html">Everest Time</a></td>
+	<td><a href="trip.html">Everest Time</a></td>
 	<td>Seattle, WA</td> 
 	<td>Class 5.1</td>
 	<td>5/5/15 - 5/10/15</td>
