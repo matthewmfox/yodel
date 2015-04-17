@@ -4,46 +4,46 @@ $(function () {
 	var standInPhoto = '<img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">'
 	var reviewText;
 	var toolbarFunction = function() {
-                $("#profile").button({
-                    icons: {
-                        primary: "ui-icon-person"
-                    },
-                    text: false
-                });
+    $("#profile").button({
+	    icons: {
+	      primary: "ui-icon-person"
+	    },
+	    text: false
+    });
 
-                $("#logo").button({
-                    icons: {
-                        primary: "ui-icon-image"
-                    },
-                    text: true
-                });
-                $("#messages").button({
-                    icons: {
-                        primary: "ui-icon-mail-closed"
-                    },
-                    text: false
-                });
+    $("#logo").button({
+      icons: {
+        primary: "ui-icon-image"
+      },
+      text: true
+    });
+    $("#messages").button({
+      icons: {
+      	primary: "ui-icon-mail-closed"
+      },
+      text: false
+    });
 
-                $("#settings").button({
-                    icons: {
-                        primary: "ui-icon-gear"
-                    },
-                    text: false
-                });
-               
-                $("#notifications").button({
-                    icons: {
-                        primary: "ui-icon-info"
-                    },
-                    text: false
-                });
-            }
+    $("#settings").button({
+      icons: {
+        primary: "ui-icon-gear"
+      },
+      text: false
+    });
+   
+    $("#notifications").button({
+      icons: {
+        primary: "ui-icon-info"
+      },
+      text: false
+    });
+  };
             
-            toolbarFunction();
+   toolbarFunction();
+
 	$(postReviewBtn).click( function() {
 		// Get the review from the textbox.
 		reviewText = $("#reviewInput").val();
-		console.log(reviewText)
 		if (reviewText.length) {
 			// Clear the textbox if there is text in it.
 			$("#reviewInput").val("");
@@ -67,7 +67,7 @@ $(function () {
 
 	$(postCommentBtn).click( function() {
 		// Get the review from the textbox.
-		commentText = $("#commentInput").val();
+		reviewText = $("#reviewInput").val();
 		console.log(commentText)
 		if (commentText.length) {
 			// Clear the textbox if there is text in it.
@@ -85,7 +85,6 @@ $(function () {
 			userComment.innerHTML = commentText;
 		}
 	})
-<<<<<<< HEAD
 
 	var btnJoinTrip = $( "#btnJoinTrip" ).button();
     var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
@@ -93,16 +92,13 @@ $(function () {
 	$(btnJoinTrip).click( function() {
 		// Get the review from the textbox.
 		console.log("CLICK");
-		$("btnJoinTrip").css({z-index: '4'});
-		$("btnLeaveTrip").css({z-index: '5'});
+		$("btnJoinTrip").css({'z-index': '4'});
+		$("btnLeaveTrip").css({'z-index': '5'});
 	})
 
 	$(btnLeaveTrip).click( function() {
 		// Get the review from the textbox.
-		$("btnLeaveTrip").css({z-index: '4'});
-		$("btnJoinTrip").css({z-index: '5'});
+		$("btnLeaveTrip").css({'z-index': '4'});
+		$("btnJoinTrip").css({'z-index': '5'});
 	})
-})
-=======
-})
->>>>>>> origin/master
+});
