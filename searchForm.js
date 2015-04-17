@@ -35,8 +35,6 @@ function toolbarFunction() {
 };
 
 function peopleFunction(whoCheckBox,numPeople,numAdditionalPeople) {
-    //console.log()
-    console.log(whoCheckBox,numPeople,numAdditionalPeople);
     if (!whoCheckBox[0].checked) {
         numPeople.spinner( "enable" );
         numAdditionalPeople.spinner( "enable");
@@ -47,7 +45,6 @@ function peopleFunction(whoCheckBox,numPeople,numAdditionalPeople) {
 };
 
 function calendarFunction(whenCheckBox, toDate, fromDate) {
-    console.log(whenCheckBox, toDate, fromDate);
     if (!whenCheckBox[0].checked) {
         toDate.datepicker( "option", "disabled" , false );
         fromDate.datepicker(  "option", "disabled" , false );
@@ -58,7 +55,6 @@ function calendarFunction(whenCheckBox, toDate, fromDate) {
 };
 
 function destinationFunction(whereCheckBox,destination) {
-    console.log(whereCheckBox,destination);
     if (!whereCheckBox[0].checked) {
         destination.prop('disabled', false);
     } else {
@@ -134,10 +130,17 @@ var toSearchResults = function(findPlanDropDown, tip, whoCheckBox, numPeople, nu
             where = whereCheckBox[0].checked ? ["Anywhere"] : [destination.val()];
         }
         
-        console.log([findPlan, who,when,where]);
+        //console.log([findPlan, who,when,where]);
         // TODO: show matt's page
+        load_matt();
+
     }
 };
+
+function load_matt(){
+    window.location.href = "searchResults.html"; // good enough
+    //$(document.body).html('<object type="text/html" data="searchResults.html" width="100%" height="100%" ></object>'); //lol
+}
 
 function changeFormInputs(selectedItem, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
     if (selectedItem == "Plan") {
