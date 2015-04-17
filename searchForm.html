@@ -13,341 +13,121 @@
     <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+    <script src="searchForm.js"></script>
     <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            var whoCheckBox = $("#whoCheckBox");
-            var whenCheckBox = $("#whenCheckBox");
-            var whereCheckBox = $("#whereCheckBox");
-            var tip = $(".tip");
-
-            var toolbarFunction = function() {
-                $("#profile").button({
-                    icons: {
-                        primary: "ui-icon-person"
-                    },
-                    text: false
-                });
-
-                $("#logo").button({
-                    icons: {
-                        primary: "ui-icon-image"
-                    },
-                    text: true
-                });
-                $("#messages").button({
-                    icons: {
-                        primary: "ui-icon-mail-closed"
-                    },
-                    text: false
-                });
-
-                $("#settings").button({
-                    icons: {
-                        primary: "ui-icon-gear"
-                    },
-                    text: false
-                });
-               
-                $("#notifications").button({
-                    icons: {
-                        primary: "ui-icon-info"
-                    },
-                    text: false
-                });
-            }
-            
-            toolbarFunction();
-
-            $( "#destination, #numPeople" ).tooltip({
-                // my: is the tooltip, 15 is the offset from the target
-                // moved tooltip so that it doesn't run into autocomplete
-                position: { my: "left+30 center", at: "right center" }
-            }); // displays the title
-            
-            
-            
-            var numPeople = $( "#numPeople");
-            numPeople.spinner({
-                min: 1
-            });
-
-            var numAdditionalPeople = $( "#numAdditionalPeople"); 
-            numAdditionalPeople.spinner({
-                min: 1
-            });
-
-            var peopleFunction = function () {
-                if ( ! whoCheckBox[0].checked) {
-                    numPeople.spinner( "enable" );
-                    numAdditionalPeople.spinner( "enable");
-                } else {
-                    numPeople.spinner( "disable" );
-                    numAdditionalPeople.spinner( "disable");
-                }
-            };
-
-            whoCheckBox.click(peopleFunction);
-
-
-            var fromDate = $( "#fromDate" ).datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 1,
-                minDate: new Date(),
-                onClose: function( selectedDate ) {
-                    $( "#toDate" ).datepicker( "option", "minDate", selectedDate );
-                    var selected = new Date(selectedDate)
-                    selected.setDate(selected.getDate()+7); // a week from now
-                    $( "#toDate" ).datepicker( "option", "defaultDate", selected);
-                }
-            });
-            
-            var toDate = $( "#toDate" ).datepicker({
-                defaultDate: "+0w",
-                changeMonth: true,
-                numberOfMonths: 1,
-                minDate: new Date(),
-                onClose: function( selectedDate ) {
-                    $( "#fromDate" ).datepicker( "option", "maxDate", selectedDate );
-                }
-            });
-
-            weekfromNow = new Date();
-            weekfromNow.setDate(weekfromNow.getDate() +7);
-            fromDate.datepicker('setDate', new Date());
-            toDate.datepicker('setDate', weekfromNow);
-            
-// http://jsfiddle.net/trixta/cc7Rt/light/
-// might want calendar to always be visible instead of appearing and overlapping other items.
-
-
-            var calendarFunction = function () {
-               if (!whenCheckBox[0].checked) {
-                    toDate.datepicker( "option", "disabled" , false );
-                    fromDate.datepicker(  "option", "disabled" , false );
-                } else {
-                    toDate.datepicker(  "option", "disabled" , true );
-                    fromDate.datepicker( "option", "disabled" , true );
-                } 
-            };
-
-            whenCheckBox.click(calendarFunction);
-
-
-            var destination = $( "#destination");
-            destination.prop('disabled', true) ;
-
-            var destinationFunction = function() {
-                // http://api.jquery.com/prop/
-                if ( !whereCheckBox[0].checked) {
-                    destination.prop('disabled', false);
-                } else {
-                    destination.prop('disabled', true) ;
-                }
-            };
-
-            var setAllFields = function () {
-                peopleFunction();
-                calendarFunction();
-                destinationFunction();
-            }
-
-            //Things are initially disabled
-            setAllFields();
-
-            whereCheckBox.click(destinationFunction);
-
-            
-
-            $( "input[type=submit]").button().click(function( event ) {
-                event.preventDefault();
-            });
-
-            var changeFormInputs  = function (selectedItem) {
-                if (selectedItem == "Plan") {
-                    $("#findPeople").show("fade", "fast");
-                    $("#findPeople").css("display", "inline-block");
-                    $("#findPeople").css("margin-left", "5px");
-                    var hideItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
-                    for (i=0; i<hideItems.length; i++) {
-                        $(hideItems[i]).hide();
-                    }
-                    numPeople.spinner( "enable" );
-                    numAdditionalPeople.spinner( "enable");
-                    toDate.datepicker( "option", "disabled" , false );
-                    fromDate.datepicker(  "option", "disabled" , false );
-                    $( "#destination" ).prop('disabled', false) ;
-                } else {
-                    $("#findPeople").hide()
-                    var showItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
-                    for (i=0; i<showItems.length; i++) {
-                        $(showItems[i]).show();
-                    }
-                    setAllFields();
-                }
-            }
-
-
-            $("#findPeople").hide(); //initially hidden 
-
-            var addTip = function(alert) {
-                tip.text(alert).addClass( "ui-state-highlight" );
-                setTimeout(function() {
-                    // after 1500, take 100 to remove the hightlight and change the text
-                    tip.removeClass( "ui-state-highlight", 100 );
-                    tip.text("");
-                    }, 2000 );
-            }
-            
-            var allFieldsAnswered = function() {
-                var people = numPeople.spinner("value");
-                var otherPeople = numAdditionalPeople.spinner("value");
-                var to = toDate.datepicker("getDate");
-                var from = fromDate.datepicker("getDate");
-                var loc = destination.val();
-                if (findPlanDropDown.value == "Plan") {
-                    if (people == null || otherPeople) {
-                        addTip("Number of People must be greater than 1");
-                        return false;
-                    }
-                    if (from == null || to ==null ) {
-                        addTip("Please enter 'To' and 'From' dates");
-                        return false;
-                    }
-                    if (destination.value == null) {
-                        addTip("Please enter a Location");
-                        return false;
-                    }
-                } else {
-                    if (!whoCheckBox[0].checked && people == null) {
-                        addTip("Number of People must be greater than 1");
-                        return false;
-                    }
-                    if (!whenCheckBox[0].checked && (from == null || to ==null)) {
-                        addTip("Please enter valid dates");
-                        return false;
-                    }
-                    if (!whereCheckBox[0].checked && loc == "") {
-                        addTip("Please enter a Location");
-                        return false;
-                    }
-
-                }
-                return true;
-            }
-
-            var loadSearchResults = function() {
-                // when someone says "edit results"
-                dialog.dialog( "open" );
-
-                //pick which one was selected
-                findPlanDropDown.filter(function() {
-                    return $(this).text() == findPlan; 
-                }).prop('selected', true);
-
-                if (findPlan == "Plan") {
-                    toDate.datepicker('setDate', when[1]);
-                    fromDate.datepicker('setDate', when[0]);
-                    numPeople.spinner( "value", who[0] );
-                    numAdditionalPeople.spinner( "value", who[0]);
-                    //TODO: set the location back to what it was: where[0]
-                } else {
-                    if (who[0] == "Anyone") {
-                        //TODOcheck the checkbox 
-                    } else {
-                        
-                        //TODO uncheck the check box
-                        //set the spinner
-                        peopleFunction();
-                        numPeople.spinner( "value", who[0] );
-                    }
-                    if (when[0] == "Anytime") {
-                        //TODOcheck the checkbox 
-                    } else {
-                        //TODOunckeck the checkbox
-                        //set the dates
-                        calendarFunction();
-                        toDate.datepicker('setDate', when[1]);
-                        fromDate.datepicker('setDate', when[0]);
-                    }
-                    if (where[0] == "Anywhere") {
-                        //TODOcheck the checkbox
-                    } else {
-                        // TODO unckeck the check box
-                        // TODO set the location
-                        destinationFunction();
-                    }
-
-                }
-
-
-            }
-
-
-            var toSearchResults = function() {
-                if (allFieldsAnswered()) {
-                    var selectedItem = findPlanDropDown.value;
-                    // mad hacking with global variables
-                    findPlan = "";
-                    if (selectedItem == "Plan") {
-                        findPlan = "Plan";
-                        who = [numPeople.spinner("value"), numAdditionalPeople.spinner("value")]
-                        when = [fromDate.datepicker("getDate"), toDate.datepicker("getDate")];
-                        where = [destination.val()];
-                    } else {
-                        findPlan = "Find";
-                        who = whoCheckBox[0].checked ? ["Anyone"] : [numPeople.spinner("value")];
-                        when = whenCheckBox[0].checked ? ["Anytime"] : [fromDate.datepicker("getDate"), toDate.datepicker("getDate")];
-                        where = whereCheckBox[0].checked ? ["Anywhere"] : [destination.val()];
-                    }
-                    
-                    console.log([findPlan, who,when,where]);
-                    // TODO: show matt's page
-                }
-            }
-
-            var dialog = $( "#dialog-form" ).dialog({
-              autoOpen: false,
-              modal: true, // can black out the rest of the page
-              width:400,
-              minWidth: 400,
-              buttons: {
-                "Search": toSearchResults,
-                Cancel: function() {
-                  dialog.dialog( "close" );
-                }
-              },
-              close: function() {
-                //clear fields of  the first occurence of form that you find, which is the only form
-                form[0].reset(); 
-                whoCheckBox.checked = true;
-                whenCheckBox.checked = true; 
-                whereCheckBox.checked = true;
-                setAllFields();
-              }
-            });
-
-            var form = dialog.find( "form" );
-
-            var goButton = $( "#goButton" ).button().click( function() {
-                dialog.dialog( "open" );
-            })
-
-            var findPlanDropDown = $( "#findPlanDropDown");
-            findPlanDropDown.selectmenu({
-              select: function( event, ui ) {
-                changeFormInputs(ui.item.value);
-              }
-            });
-
-            var availableDestinations = [ "Yosemite", "Mt. Everest", "Candy Mountain", "Boston, MA", "MA", "NY", "02139"];
-
-            $( "#destination" ).autocomplete({
-              source: availableDestinations
-            });
+    $(document).ready(function(){
+        var whoCheckBox = $("#whoCheckBox");
+        var whenCheckBox = $("#whenCheckBox");
+        var whereCheckBox = $("#whereCheckBox");
+        var tip = $(".tip");
+        var numPeople = $( "#numPeople");
+        numPeople.spinner({
+            min: 1
         });
+        var numAdditionalPeople = $( "#numAdditionalPeople"); 
+        numAdditionalPeople.spinner({
+            min: 1
+        });
+
+        toolbarFunction();
+
+        whoCheckBox.click(function() {
+          peopleFunction(whoCheckBox,numPeople,numAdditionalPeople);
+        });
+
+
+        var fromDate = $( "#fromDate" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            minDate: new Date(),
+            onClose: function( selectedDate ) {
+                $( "#toDate" ).datepicker( "option", "minDate", selectedDate );
+                var selected = new Date(selectedDate)
+                selected.setDate(selected.getDate()+7); // a week from now
+                $( "#toDate" ).datepicker( "option", "defaultDate", selected);
+            }
+        });
+        
+        var toDate = $( "#toDate" ).datepicker({
+            defaultDate: "+0w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            minDate: new Date(),
+            onClose: function( selectedDate ) {
+                $( "#fromDate" ).datepicker( "option", "maxDate", selectedDate );
+            }
+        });
+
+        weekfromNow = new Date();
+        weekfromNow.setDate(weekfromNow.getDate() +7);
+        fromDate.datepicker('setDate', new Date());
+        toDate.datepicker('setDate', weekfromNow);
+
+        whenCheckBox.click(function() {
+            calendarFunction(whenCheckBox, toDate, fromDate);
+        });
+
+        var destination = $( "#destination");
+        //Things are initially disabled
+        setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+        whereCheckBox.click(function() {
+            destinationFunction(whereCheckBox,destination);
+    });
+
+        $( "input[type=submit]").button().click(function( event ) {
+            event.preventDefault();
+        });
+
+        $("#findPeople").hide(); //initially hidden 
+
+        var findPlanDropDown = $( "#findPlanDropDown");
+
+        var dialog = $( "#dialog-form" ).dialog({
+          autoOpen: false,
+          modal: true, // can black out the rest of the page
+          width:400,
+          minWidth: 400,
+          buttons: {
+            "Search": function() {
+                toSearchResults(findPlanDropDown, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+            },
+            Cancel: function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+            //clear fields of  the first occurence of form that you find, which is the only form
+            form[0].reset(); 
+            whoCheckBox.checked = true;
+            whenCheckBox.checked = true; 
+            whereCheckBox.checked = true;
+            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+          }
+        });
+
+
+        var form = dialog.find( "form" );
+
+        var goButton = $( "#goButton" ).button().click( function() {
+            dialog.dialog( "open" );
+        })
+
+
+        findPlanDropDown.selectmenu({
+          select: function( event, ui ) {
+            changeFormInputs(ui.item.value, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+          }
+        });
+
+        var availableDestinations = [ "Yosemite", "Mt. Everest", "Candy Mountain", "Boston, MA", "MA", "NY", "02139"];
+
+        $( "#destination" ).autocomplete({
+          source: availableDestinations
+    });
+    });
     </script>
 
     <style>
