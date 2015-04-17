@@ -49,4 +49,20 @@ $(function () {
 			userComment.innerHTML = commentText;
 		}
 	})
+
+	var btnJoinTrip = $( "#btnJoinTrip" ).button();
+    var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
+
+	$(btnJoinTrip).click( function() {
+		// Get the review from the textbox.
+		console.log("CLICK");
+		$("btnJoinTrip").css({z-index: '4'});
+		$("btnLeaveTrip").css({z-index: '5'});
+	})
+
+	$(btnLeaveTrip).click( function() {
+		// Get the review from the textbox.
+		$("btnLeaveTrip").css({z-index: '4'});
+		$("btnJoinTrip").css({z-index: '5'});
+	})
 })
