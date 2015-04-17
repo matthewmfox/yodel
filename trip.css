@@ -3,6 +3,7 @@
 	height: 45%;
 	position: absolute;
 	left: 10%;
+	z-index: 3;
 
 }
 
@@ -10,12 +11,15 @@
 	position: absolute;
 	left: 11%;
 	top: 42%;
+	color: white;
+	z-index: 6;
 }
 
 #join {
 	position: absolute;
 	right: 11%;
 	top: 40%;
+	z-index: 5;
 }
 
 #party {
@@ -24,6 +28,7 @@
 	left: 25%;
 	right: 21%;
 	bottom: 55%;
+	z-index: 5;
 }
 
 #comments {
@@ -46,28 +51,42 @@
 	bottom: 1%;
 	background-color:white;
 	opacity: 0.85;
+	z-index: 100;
 }
 
 .profilePic {
 	width: 10%;
 	height: 10%;
+	z-index: 5;
 }
+
 table, th, td {
 	    border: 1px solid black;
 	    padding: 20px;
 	    border-collapse: collapse;
-	    z-index: 1;
+	    z-index: 100;
 	    color: black;
 }
 
-#body{
+#bodyText{
     width: 80%;
     height: 100%;
     align: center;
     z-index: -2;
     background-color:grey;
-    opacity: 0.85;
+    opacity: 0.95;
     left: 10%;
     top: 0%;
     position: absolute;
+    z-index: 2;
+}
+
+#nameBack{
+    position: absolute;
+    width: 9%;
+    height: 5%;
+    z-index: 5;
+    left: 10.7%;
+    top: 40.6%;
+    background-color:#0078ae;
 }
