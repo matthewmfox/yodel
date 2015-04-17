@@ -24,4 +24,29 @@ $(function () {
 			userReview.innerHTML = reviewText;
 		}
 	})
+
+	var postCommentBtn = $("#postCommentBtn");
+	var commentTable = document.getElementById("commentTable");
+	var commentText;
+
+	$(postCommentBtn).click( function() {
+		// Get the review from the textbox.
+		commentText = $("#commentInput").val();
+		console.log(commentText)
+		if (commentText.length) {
+			// Clear the textbox if there is text in it.
+			$("#commentInput").val("");
+
+			// Make a new row in which to put the users image and comment.
+			commentText = "<pre>" + commentText + "</pre>";
+			var row = commentTable.insertRow(0);
+			var userPhoto = row.insertCell(0);
+			userPhoto.setAttribute("class", "contentContainer");
+			userPhoto.innerHTML = standInPhoto;
+
+			var userComment = row.insertCell(1);
+			userComment.setAttribute("class", "contentContainer");
+			userComment.innerHTML = commentText;
+		}
+	})
 })
