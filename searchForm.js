@@ -100,6 +100,10 @@ function allFieldsAnswered(findPlanDropDown, numPeople, numAdditionalPeople, toD
 
 function setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
     peopleFunction(whoCheckBox,numPeople,numAdditionalPeople);
+    weekfromNow = new Date();
+    weekfromNow.setDate(weekfromNow.getDate() +7);
+    fromDate.datepicker('setDate', new Date());
+    toDate.datepicker('setDate', weekfromNow);
     calendarFunction(whenCheckBox, toDate, fromDate);
     destinationFunction(whereCheckBox,destination);
 };
@@ -203,8 +207,9 @@ function getAllTheThings() {
 
     var dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
+      draggable: false,
       modal: true, // can black out the rest of the page
-      width:400,
+      width: 400,
       minWidth: 400,
       buttons: {
         "Search": toSearchResults(findPlanDropDown, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination),
