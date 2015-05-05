@@ -67,12 +67,13 @@ $(function () {
 	})
 
 	var postCommentBtn = $("#postCommentBtn");
+	var me = $("#me");
 	var commentTable = document.getElementById("commentTable");
 	var commentText;
 
 	$(postCommentBtn).click( function() {
 		// Get the review from the textbox.
-		commentText = $("#reviewInput").val();
+		commentText = $("#commentInput").val();
 		console.log(commentText)
 		if (commentText.length) {
 			// Clear the textbox if there is text in it.
@@ -92,18 +93,20 @@ $(function () {
 	})
 
 	var btnJoinTrip = $( "#btnJoinTrip" ).button();
-    var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
+        var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
 
-	$(btnJoinTrip).click( function() {
+	btnJoinTrip.click( function() {
 		// Get the review from the textbox.
 		console.log("CLICK");
-		$("btnJoinTrip").css({'z-index': '4'});
-		$("btnLeaveTrip").css({'z-index': '5'});
+		btnJoinTrip.css({'z-index': '4'});
+		btnLeaveTrip.css({'z-index': '5'});
+		me.css({'z-index': '200'});
 	})
 
-	$(btnLeaveTrip).click( function() {
+	btnLeaveTrip.click( function() {
 		// Get the review from the textbox.
-		$("btnLeaveTrip").css({'z-index': '4'});
-		$("btnJoinTrip").css({'z-index': '5'});
+		btnLeaveTrip.css({'z-index': '4'});
+		btnJoinTrip.css({'z-index': '5'});	
+		me.css({'z-index': '0'});
 	})
 });
