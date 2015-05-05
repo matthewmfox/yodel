@@ -175,6 +175,9 @@ section {
 
 #toolbar {
         padding: 4px;
+	position: absolute;
         display: inline-block;
-        width: 99%;
+        width: 80%;
+	left: 9.75%;
+	font-size: 72.5%;
 }
