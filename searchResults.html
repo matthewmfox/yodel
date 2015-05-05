@@ -3,13 +3,13 @@
 <head>
     <title>Yodel: Search Results </title>
     <link rel="stylesheet" type="text/css" href="resultsStyle.css" />
-    <script type="text/javascript" src="jquery-1.9.0.min.js"> </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
     <script type="text/javascript" src="searchForm.js"></script>
-    <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
     <script src="sorttable.js"> </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 	$(document).ready( function () {
 
@@ -90,37 +90,37 @@
     <table style="width:75%" align="center" border="1" class ="sortable" id="resultTable">
     <thead>
     <tr class="titles">
-	<th id="tripName"><b>Trip Name</b></th>
-	<th id="location"><b>Location</b></th> 
-	<th id="difficulty"><b>Difficulty</b></th>
-	<th id="dates"><b>Dates</b></th>
-	<th id="group"><b>Group</b></th>
+	<th id="tripName" class="t"><b>Trip Name</b></th>
+	<th id="location" class="t"><b>Location</b></th> 
+	<th id="difficulty" class="t"><b>Difficulty</b></th>
+	<th id="dates" class="t"><b>Dates</b></th>
+	<th id="group" class="t"><b>Group</b></th>
     </tr>
     </thead>
     <tbody>
-    <tr class="results">
-	<td><a href="trip.html">Spring Breakkkk</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>Spring Breakkkk</td>
 	<td>Puerto Plata, DR</td> 
 	<td>Class 5.15d</td>
 	<td>3/22/15 - 3/27/15</td>
 	<td>4/9</td>
     </tr>
-    <tr class="results">
-	<td><a href="trip.html">Kresge Auditorium Climb</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>Kresge Auditorium Climb</td>
 	<td>Boston, MA</td> 
 	<td>Class 5.2</td>
 	<td>3/24/15 - 3/30/15</td>
 	<td>2/4</td>
     </tr>
-    <tr class="results">
-	<td><a href="trip.html">KilamanjarYoooooooo</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>KilamanjarYoooooooo</td>
 	<td>Tanzania, Africa</td> 
 	<td>Class 5.5</td>
 	<td>4/2/15 - 4/12/15</td>
 	<td>16/19</td>
     </tr>
-    <tr class="results">
-	<td><a href="trip.html">Everest Time</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>Everest Time</td>
 	<td>Seattle, WA</td> 
 	<td>Class 5.1</td>
 	<td>5/5/15 - 5/10/15</td>
