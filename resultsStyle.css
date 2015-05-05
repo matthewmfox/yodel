@@ -2,6 +2,10 @@
     padding: 20px;
 }
 
+* {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
 .results td{
     padding: 10px;
 }
@@ -35,7 +39,7 @@ table{
     align: center;
     z-index: -2;
     background-color:grey;
-    opacity: 0.97;
+    opacity: 1;
     left: 10%;
     top: 0%;
     position: absolute;
@@ -53,14 +57,14 @@ td a{
     left: 12.5%;
     top: 75px;
     color: white;
-    font-size: 200%
+    font-size: 185%
 }
 #edit{
     position: absolute;
-    left: 78%;
+    left: 77%;
     top: 75px;
     color: white;
-    font-size: 200%    
+    font-size: 175%    
 }
 
 
