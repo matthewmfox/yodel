@@ -5,6 +5,7 @@ html, body, button * {
 
 * {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	color: white;
 }
 section {
 	width: 80%;
@@ -83,7 +84,7 @@ section {
 
 /** Information Section Styling **/
 #infoSection {
-	background-color: grey;
+	background-color: gray;
 	width: 95%;
 	height: auto;
 	margin: 30px auto;
@@ -97,13 +98,14 @@ section {
 	height: 97%;
 	width: 50%;
 	margin-left: 10px;
-	background-color: white;
+	background-color: gray;
 	opacity: 0.89;
 }
 
 #infoFieldHeader {
 	font-size: 1.3em;
 	font-weight: bold;
+	color: white;
 }
 
 #infoFieldHeader:after {
@@ -174,7 +176,7 @@ section {
 
 
 #toolbar {
-        padding: 4px;
         display: inline-block;
         width: 99%;
 }
+
