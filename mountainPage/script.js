@@ -36,7 +36,13 @@ $(function () {
     });
   };
             
-   toolbarFunction();
+    toolbarFunction();
+
+    var home = $("#logo").button();
+   
+    home.click(function() {
+       document.location = 'searchForm.html';	    
+    });
 
 
 
