@@ -77,10 +77,13 @@ $(function () {
 	var me = $("#me");
 	var commentTable = document.getElementById("commentTable");
 	var commentText;
+	var createTripBtn;
 
-	$(createTripBtn).click( function() {
+	if(createTripBtn !== undefined){
+	    $(createTripBtn).click( function() {
 		document.location = '../searchForm.html';
-	});
+	    });
+	};
 
 	$(postCommentBtn).click( function() {
 		// Get the review from the textbox.
