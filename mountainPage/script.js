@@ -67,9 +67,14 @@ $(function () {
 	})
 
 	var postCommentBtn = $("#postCommentBtn");
+	var createCommentBtn = $("#createTripBtn")
 	var me = $("#me");
 	var commentTable = document.getElementById("commentTable");
 	var commentText;
+
+	$(createTripBtn).click( function() {
+		document.location = '../searchForm.html';
+	});
 
 	$(postCommentBtn).click( function() {
 		// Get the review from the textbox.
@@ -92,8 +97,11 @@ $(function () {
 		}
 	})
 
+/*
+	The following code is meant for the trip.html page.
+*/
 	var btnJoinTrip = $( "#btnJoinTrip" ).button();
-        var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
+    var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
 
 	btnJoinTrip.click( function() {
 		// Get the review from the textbox.
