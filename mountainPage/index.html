@@ -26,6 +26,8 @@ The page body will display:
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
+        var thisUrl = window.location.href;
+        $("#mtnNameText").text(decodeURIComponent(thisUrl.substring(thisUrl.indexOf("?") + 1, thisUrl.length)));
         $("#createTripBtn").button();
         $("#postReviewBtn").button();
       })
@@ -47,7 +49,7 @@ The page body will display:
         <div id="mtnCoverPhoto">
           <div id="mtnLabelContainer">
             <div id="mtnNameSection">
-              <span id="mtnNameText">Smoky Unicorn</span>
+              <span id="mtnNameText">Sample</span>
             </div>
             <div id="createTripSection">
               <input type="button" value="Create Trip" id="createTripBtn">

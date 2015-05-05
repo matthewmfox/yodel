@@ -29,6 +29,19 @@ section {
 	font-size: 300%;
 }
 
+#btnMtnName {
+	cursor: pointer;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-decoration: underline;
+	display: inline-block;
+}
+
+#btnMtnName:hover {
+	color: blue;
+
+}
+
 #nameBack{
     position: absolute;
     width: 25.5%;

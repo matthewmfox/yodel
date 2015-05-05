@@ -73,7 +73,7 @@ $(function () {
 	})
 
 	var postCommentBtn = $("#postCommentBtn");
-	var createCommentBtn = $("#createTripBtn")
+	var createTripBtn = $("#createTripBtn")
 	var me = $("#me");
 	var commentTable = document.getElementById("commentTable");
 	var commentText;
@@ -108,6 +108,8 @@ $(function () {
 */
 	var btnJoinTrip = $( "#btnJoinTrip" ).button();
     var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
+    var btnMtnName = $( "#btnMtnName" );
+    var mtnNameText = $( "mtnNameText");
 
 	btnJoinTrip.click( function() {
 		// Get the review from the textbox.
@@ -115,12 +117,18 @@ $(function () {
 		btnJoinTrip.css({'z-index': '4'});
 		btnLeaveTrip.css({'z-index': '5'});
 		me.css({'z-index': '200'});
-	})
+	});
 
 	btnLeaveTrip.click( function() {
 		// Get the review from the textbox.
 		btnLeaveTrip.css({'z-index': '4'});
 		btnJoinTrip.css({'z-index': '5'});	
 		me.css({'z-index': '0'});
+	});
+
+	btnMtnName.click( function() {
+		var mtnName = btnMtnName.text();
+		document.location = "mountainPage/index.html?" + mtnName;
+		
 	})
 });
