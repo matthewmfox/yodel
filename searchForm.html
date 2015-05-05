@@ -87,6 +87,7 @@
 
         var dialog = $( "#dialog-form" ).dialog({
           autoOpen: false,
+          draggable: false,
           modal: true, // can black out the rest of the page
           width:400,
           minWidth: 400,
@@ -136,10 +137,16 @@
       width: 200px;
     }
 
+    * {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    }
+
     #toolbar {
-        padding: 4px;
+	padding: 4px;
+	position: absolute;    
         display: inline-block;
-        width: 99%;
+	width: 80%;
+	left: 9.75%;
     }
 
     #numPeople, #numAdditionalPeople {
@@ -189,7 +196,7 @@
 
 <div id="toolbar" class="ui-widget-header ui-corner-all">
     <button id="logo">Yodel Logo</button>
-    <input type="text" id="search" value="Search" style="font-style:italic; margin-left: 20px;" ></input>
+    <input type="text" id="search" placeholder="Search for People, Trips, or Mountrains" style="font-style:italic; margin-left: 20px; width: 200px;" ></input>
     <!--Because of the float, the items go in backwards-->
     <button id="settings" style="float:right">Settings</button>
     <button id="notifications" style="float:right">Notifications</button>

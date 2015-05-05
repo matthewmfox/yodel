@@ -1,9 +1,6 @@
 $(function () {
-	var postReviewBtn = $("#postReviewBtn");
-	var reviewTable = document.getElementById("reviewTable");
-	var standInPhoto = '<img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">'
-	var reviewText;
-	var toolbarFunction = function() {
+
+    var toolbarFunction = function() {
     $("#profile").button({
 	    icons: {
 	      primary: "ui-icon-person"
@@ -41,6 +38,14 @@ $(function () {
             
    toolbarFunction();
 
+
+
+	var postReviewBtn = $("#postReviewBtn");
+	var reviewTable = document.getElementById("reviewTable");
+	var standInPhoto = '<img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">'
+	var reviewText;
+	
+
 	$(postReviewBtn).click( function() {
 		// Get the review from the textbox.
 		reviewText = $("#reviewInput").val();
@@ -62,12 +67,13 @@ $(function () {
 	})
 
 	var postCommentBtn = $("#postCommentBtn");
+	var me = $("#me");
 	var commentTable = document.getElementById("commentTable");
 	var commentText;
 
 	$(postCommentBtn).click( function() {
 		// Get the review from the textbox.
-		reviewText = $("#reviewInput").val();
+		commentText = $("#commentInput").val();
 		console.log(commentText)
 		if (commentText.length) {
 			// Clear the textbox if there is text in it.
@@ -87,18 +93,20 @@ $(function () {
 	})
 
 	var btnJoinTrip = $( "#btnJoinTrip" ).button();
-    var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
+        var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
 
-	$(btnJoinTrip).click( function() {
+	btnJoinTrip.click( function() {
 		// Get the review from the textbox.
 		console.log("CLICK");
-		$("btnJoinTrip").css({'z-index': '4'});
-		$("btnLeaveTrip").css({'z-index': '5'});
+		btnJoinTrip.css({'z-index': '4'});
+		btnLeaveTrip.css({'z-index': '5'});
+		me.css({'z-index': '200'});
 	})
 
-	$(btnLeaveTrip).click( function() {
+	btnLeaveTrip.click( function() {
 		// Get the review from the textbox.
-		$("btnLeaveTrip").css({'z-index': '4'});
-		$("btnJoinTrip").css({'z-index': '5'});
+		btnLeaveTrip.css({'z-index': '4'});
+		btnJoinTrip.css({'z-index': '5'});	
+		me.css({'z-index': '0'});
 	})
 });

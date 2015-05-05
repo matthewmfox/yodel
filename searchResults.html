@@ -3,9 +3,8 @@
 <head>
     <title>Yodel: Search Results </title>
     <link rel="stylesheet" type="text/css" href="resultsStyle.css" />
-    <script type="text/javascript" src="jquery-1.9.0.min.js"> </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
     <script type="text/javascript" src="searchForm.js"></script>
-    <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
@@ -73,7 +72,7 @@
 
     <div id="toolbar" class="ui-widget-header ui-corner-all">
     <button id="logo">Yodel Logo</button>
-    <input type="text" id="search" value="Search" style="font-style:italic; margin-left: 20px;" ></input>
+    <input type="text" id="search" placeholder="Search for People, Trips, or Mountains" style="font-style:italic; margin-left: 20px; width: 200px;" ></input>
     <!--Because of the float, the items go in backwards-->
     <button id="settings" style="float:right">Settings</button>
     <button id="notifications" style="float:right">Notifications</button>
@@ -90,41 +89,46 @@
     <table style="width:75%" align="center" border="1" class ="sortable" id="resultTable">
     <thead>
     <tr class="titles">
-	<th id="tripName"><b>Trip Name</b></th>
-	<th id="location"><b>Location</b></th> 
-	<th id="difficulty"><b>Difficulty</b></th>
-	<th id="dates"><b>Dates</b></th>
-	<th id="group"><b>Group</b></th>
+	<th id="tripName" class="t"><b>Trip Name</b></th>
+	<th id="organizer" class="t"><b>Organizer</b></th>
+	<th id="location" class="t"><b>Location</b></th> 
+	<th id="difficulty" class="t"><b>Difficulty</b></th>
+	<th id="dates" class="t"><b>Dates</b></th>
+	<th id="group" class="t"><b>Group</b></th>
     </tr>
     </thead>
     <tbody>
-    <tr class="results">
-	<td><a href="trip.html">Spring Breakkkk</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>Spring Breakkkk</td>
+	<td>Matt Fox</td>
 	<td>Puerto Plata, DR</td> 
 	<td>Class 5.15d</td>
 	<td>3/22/15 - 3/27/15</td>
-	<td>4/9</td>
+	<td>4 out of 9</td>
     </tr>
-    <tr class="results">
-	<td><a href="trip.html">Kresge Auditorium Climb</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>Kresge Auditorium Climb</td>
+	<td>Victoria Jones</td>
 	<td>Boston, MA</td> 
 	<td>Class 5.2</td>
 	<td>3/24/15 - 3/30/15</td>
-	<td>2/4</td>
+	<td>2 out of 4</td>
     </tr>
-    <tr class="results">
-	<td><a href="trip.html">KilamanjarYoooooooo</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>KilamanjarYoooooooo</td>
+	<td>Miles Kelsey</td>
 	<td>Tanzania, Africa</td> 
 	<td>Class 5.5</td>
 	<td>4/2/15 - 4/12/15</td>
-	<td>16/19</td>
+	<td>16 out of 19</td>
     </tr>
-    <tr class="results">
-	<td><a href="trip.html">Everest Time</a></td>
+    <tr class="results" onclick="document.location = 'trip.html';">
+	<td>Everest Time</td>
+	<td>Royal Morris</td>
 	<td>Seattle, WA</td> 
 	<td>Class 5.1</td>
 	<td>5/5/15 - 5/10/15</td>
-	<td>1/50</td>
+	<td>1 out of 50</td>
     </tr>
     </tbody>
     </table>
