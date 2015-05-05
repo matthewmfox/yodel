@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
     <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="mountainPage/script.js"></script>
+    <!-- <script type="text/javascript" src="mountainPage/script.js"></script> -->
     <script>
 	$(document).ready(function() {
 		var toolbarFunction = function() {
@@ -46,12 +46,35 @@
             
             toolbarFunction();
 
-    		var btnJoinTrip = $( "#btnJoinTrip" ).button();
-    		var btnLeaveTrip = $( "#btnLeaveTrip" ).button();
-    		
-    		$("#postCommentBtn").button();
+	
+	var postCommentBtn = $("#postCommentBtn");
+	var commentTable = document.getElementById("commentTable");
+
+	var standInPhoto = '<img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">'
+	var commentText;
+
+	$(postCommentBtn).click( function() {
+		// Get the review from the textbox.
+		commentText = $("#commentInput").val();
+		console.log(commentText)
+		if (commentText.length) {
+			// Clear the textbox if there is text in it.
+			$("#commentInput").val("");
+
+			// Make a new row in which to put the users image and comment.
+			commentText = "<pre>" + commentText + "</pre>";
+			var row = commentTable.insertRow(0);
+			var userPhoto = row.insertCell(0);
+			userPhoto.setAttribute("class", "contentContainer");
+			userPhoto.innerHTML = standInPhoto;
+
+			var userComment = row.insertCell(1);
+			userComment.setAttribute("class", "contentContainer");
+			userComment.innerHTML = commentText;
+		}
+	})
     	})
-    	
+	
     </script>
 </head>
 
@@ -59,7 +82,7 @@
 
 <div id="toolbar" class="ui-widget-header ui-corner-all">
     <button id="logo">Yodel Logo</button>
-    <input type="text" id="search" placeholder="Search" style="font-style:italic; margin-left: 20px;" ></input>
+    <input type="text" id="search" placeholder="Search for People, Trips, or Mountains" style="font-style:italic; margin-left: 20px; width: 200px;" ></input>
     <!--Because of the float, the items go in backwards-->
     <button id="settings" style="float:right">Settings</button>
     <button id="notifications" style="float:right">Notifications</button>
@@ -80,10 +103,10 @@
 			</div>
 			<div id="nameBack"></div>
 			<div id="party">
-				<img class="profilePic" class="images" src="http://i.imgur.com/tmVJtna.jpg">
-				<img class="profilePic" class="images" src="http://i.imgur.com/wpP9ZGp.jpg">
-				<img class="profilePic" class="images" src="http://i.imgur.com/wPSChE2.jpg">
-				<img class="profilePic" class="images" src="http://i.imgur.com/BB9I4zr.jpg">
+				<img class="profilePic" class="images" id="first" src="http://i.imgur.com/tmVJtna.jpg" title="Dwayne Johnson">
+				<img class="profilePic" class="images" id="second" src="http://i.imgur.com/wpP9ZGp.jpg" title="The Rock">
+				<img class="profilePic" class="images" id="third" src="http://i.imgur.com/wPSChE2.jpg" title="Guy Fawkes">
+				<img class="profilePic" class="images" id="fourth" src="http://i.imgur.com/BB9I4zr.jpg" title="Bob Costas">
 				<img class="profilePic" class="images" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">
 				<img class="profilePic" class="images" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">
 				<img class="profilePic" class="images" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">
@@ -98,22 +121,7 @@
 	</div>
 
 	<div id="bodyText">
-		<div id="comments">
-			<table id="commentTable">
-            <tr>
-              <td class="contentContainer">
-                <img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">
-              </td>
-              <td class="contentContainer">This is my comment for the trip.</td>
-            </tr>
-            <tr id="blankTextBox">
-              <td colspan="2"><textarea id="commentInput" rows="10" cols="80"></textarea></td>
-            </tr>
-            <tr>
-              <td colspan="2"><input type="button" value="Post" id="postCommentBtn"></td>
-            </tr>
-          </table>
-		</div>
+		
 		<div id="infoDiv">
 			<table id="infoTable">
 				<tr id="where">
@@ -132,6 +140,22 @@
 			<div id="blurb">
 				<p>Hey friends and strangers! Come camping with me, The Rock, as we go climb some rocks. Haha! Can you imagine a better way to spend your vacation days than isolated in the wilderness with me? BYOB. Meet at the park entrance.</p>
 			</div>
+		</div>
+	        <div id="comments">
+			<table id="commentTable">
+            <tr>
+              <td class="contentContainer">
+                <img class="userPhoto" src="https://d29bmv6chs6e5y.cloudfront.net/assets/blank_profile-8b180b8cb50c648f1fe92cc0797a5dcf.jpg">
+              </td>
+              <td class="contentContainer">I'm super pumped for the trip!!</td>
+            </tr>
+            <tr id="blankTextBox">
+              <td colspan="2"><textarea id="commentInput" rows="10" cols="80"></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2"><input type="button" value="Post" id="postCommentBtn"></td>
+            </tr>
+          </table>
 		</div>
 	</div>
 </body>
