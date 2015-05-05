@@ -114,6 +114,30 @@
             whereCheckBox.checked = true;
             setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
           }
+	});
+
+        var dialog2 = $( "#dialog-form2" ).dialog({
+          autoOpen: false,
+          draggable: false,
+          modal: true, // can black out the rest of the page
+          width:400,
+          minWidth: 400,
+          buttons: {
+            "Search": function() {
+                toSearchResults(findPlanDropDown, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+            },
+            Cancel: function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+            //clear fields of  the first occurence of form that you find, which is the only form
+            form[0].reset(); 
+            whoCheckBox.checked = true;
+            whenCheckBox.checked = true; 
+            whereCheckBox.checked = true;
+            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+          }
         });
 
 
@@ -121,7 +145,11 @@
 
         var goButton = $( "#goButton" ).button().click( function() {
             dialog.dialog( "open" );
-        })
+	    })
+
+	var goButton2 = $( "#goButton2" ).button().click(function() {
+	    dialog2.dialog( "open" );		
+	})
 
 
         findPlanDropDown.selectmenu({
@@ -177,16 +205,31 @@
     #dialog-form {
         padding: 20px;
         
+}
+
+    #dialog-form2 {
+        padding: 20px;
+        
     }
 
     #goButton {
         width: 20%;
-        left: 40%;
+        left: 27.5%;
         font-weight: bold;
         font-size: xx-large;
         position: absolute;
         top: 50%;
     }
+
+    #goButton2 {
+        width: 20%;
+        left: 52.5%;
+        font-weight: bold;
+        font-size: xx-large;
+        position: absolute;
+        top: 50%;
+    }
+
 
     .tip {
         text-align: center;
@@ -210,19 +253,11 @@
 <br>
 <br>
 
-<button id="goButton">Start/Join a Trip!</button>
+<button id="goButton">Start a Trip!</button>
+<button id="goButton2">Join a Trip!</button>
 
-<div id="dialog-form" title="Let's go Exploring">
+<div id="dialog-form" title="Start a Trip!">
 <form id="searchForm">
-    <label for="findPlanDropDown">I would like to </label>
-    <select name="findPlanDropDown" id="findPlanDropDown">
-      <option selected="selected">Find</option>
-      <option>Plan</option>
-    </select><label for="findPlanDropDown"> a trip</label>
-    <p class="tip"><p>
-    <hr>
-
-
     <!--Who-->
     <label>Who: </label> <input id="whoCheckBox" type="checkbox" name="who" checked><label for="whoCheckBox" id="whoLabel">Anyone </label>
     <fieldset>
@@ -257,6 +292,48 @@
     <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 </form> 
 </div>
+
+
+
+
+<div id="dialog-form2" title="Join a Trip!">
+
+    <!--Who-->
+    <label>Number of people in my party: </label> <input id="whoCheckBox" type="checkbox" name="who" checked><label for="whoCheckBox" id="whoLabel">Any Number </label>
+    <fieldset>
+        <input type="text" id="numPeople" name="numPeople" value= "1" title="people in my party (including myself)"><div id="findPeople"><label for="numAdditionalPeople">looking for</label> <input type="text" id="numAdditionalPeople" value ="1" name="numAdditionalPeople" ><label for="numAdditionalPeople"> more </label> </div>
+    </fieldset>
+    
+
+    <!--When-->
+
+    <label >When: </label> <input id="whenCheckBox" type="checkbox" name="when" checked><label for="whenCheckBox" id="whenLabel">Anytime</label>
+    <fieldset>
+        <table>
+            <tr>
+                <td><label for="fromDate">From: </label></td>
+                <td><label for="toDate">To: </label></td>
+            </tr>
+            <tr>
+                <td><input id="fromDate" type="text" name="fromDate" ></td>
+                <td><input id="toDate" type="text" name="toDate"></td>
+            </tr>
+        </table>
+    <br>
+    </fieldset>
+
+    <!--Where-->
+
+    <label >Where: </label><input id= "whereCheckBox" type="checkbox" name="where" checked><label for="whereCheckBox" id = "whereLabel">Anywhere </label>
+    <fieldset >
+        <input type="text" id="destination" title= "Enter a Mountain Name, City, State, or Zipcode"  value="" >
+    </fieldset>
+
+    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+</form> 
+</div>
+
+
 </body>
 
 </html>
