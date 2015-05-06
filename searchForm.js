@@ -117,9 +117,9 @@ function addTip(tip , alert) {
         }, 2000 );
 }
 
-var toSearchResults = function(findPlanDropDown, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
-    if (allFieldsAnswered(findPlanDropDown, numPeople, numAdditionalPeople, toDate, fromDate, destination, tip, whoCheckBox, whenCheckBox, whereCheckBox)) {
-        var selectedItem = findPlanDropDown.value;
+var toSearchResults = function(findPlan, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
+    if (allFieldsAnswered(findPlan, numPeople, numAdditionalPeople, toDate, fromDate, destination, tip, whoCheckBox, whenCheckBox, whereCheckBox)) {
+        var selectedItem = findPlan;
         // mad hacking with global variables
         findPlan = "";
         if (selectedItem == "Plan") {
@@ -146,29 +146,29 @@ function load_matt(){
     //$(document.body).html('<object type="text/html" data="searchResults.html" width="100%" height="100%" ></object>'); //lol
 }
 
-function changeFormInputs(selectedItem, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
-    if (selectedItem == "Plan") {
-        $("#findPeople").show("fade", "fast");
-        $("#findPeople").css("display", "inline-block");
-        $("#findPeople").css("margin-left", "5px");
-        var hideItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
-        for (i=0; i<hideItems.length; i++) {
-            $(hideItems[i]).hide();
-        }
-        numPeople.spinner( "enable" );
-        numAdditionalPeople.spinner( "enable");
-        toDate.datepicker( "option", "disabled" , false );
-        fromDate.datepicker(  "option", "disabled" , false );
-        $( "#destination" ).prop('disabled', false) ;
-    } else {
-        $("#findPeople").hide()
-        var showItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
-        for (i=0; i<showItems.length; i++) {
-            $(showItems[i]).show();
-        }
-        setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
-    }
-};
+// function changeFormInputs(selectedItem, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
+//     if (selectedItem == "Plan") {
+//         $("#findPeople").show("fade", "fast");
+//         $("#findPeople").css("display", "inline-block");
+//         $("#findPeople").css("margin-left", "5px");
+//         var hideItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
+//         for (i=0; i<hideItems.length; i++) {
+//             $(hideItems[i]).hide();
+//         }
+//         numPeople.spinner( "enable" );
+//         numAdditionalPeople.spinner( "enable");
+//         toDate.datepicker( "option", "disabled" , false );
+//         fromDate.datepicker(  "option", "disabled" , false );
+//         $( "#destination" ).prop('disabled', false) ;
+//     } else {
+//         $("#findPeople").hide()
+//         var showItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
+//         for (i=0; i<showItems.length; i++) {
+//             $(showItems[i]).show();
+//         }
+//         setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+//     }
+// };
 
 function getAllTheThings() {
     var whoCheckBox = $("#whoCheckBox");
@@ -201,9 +201,10 @@ function getAllTheThings() {
     });
 
     var destination = $( "#destination");
-    var findPlanDropDown = $( "#findPlanDropDown");
+    //var findPlanDropDown = $( "#findPlanDropDown");
 
     var form = dialog.find( "form" );
+    var form2 = dialog.find( "form" );
 
     var dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
@@ -212,7 +213,7 @@ function getAllTheThings() {
       width: 400,
       minWidth: 400,
       buttons: {
-        "Search": toSearchResults(findPlanDropDown, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination),
+        "Search": toSearchResults("Plan", tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination),
         Cancel: function() {
           dialog.dialog( "close" );
         }
