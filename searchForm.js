@@ -204,29 +204,63 @@ function getAllTheThings() {
     //var findPlanDropDown = $( "#findPlanDropDown");
 
     var form = dialog.find( "form" );
-    var form2 = dialog.find( "form" );
+    var form2 = dialog2.find( "form" );
 
-    var dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      draggable: false,
-      modal: true, // can black out the rest of the page
-      width: 400,
-      minWidth: 400,
-      buttons: {
-        "Search": toSearchResults("Plan", tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination),
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
-      },
-      close: function() {
-        //clear fields of  the first occurence of form that you find, which is the only form
-        form[0].reset(); 
-        whoCheckBox.checked = true;
-        whenCheckBox.checked = true; 
-        whereCheckBox.checked = true;
-        setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
-      }
+        var dialog = $( "#dialog-form" ).dialog({
+          autoOpen: false,
+          draggable: false,
+          modal: true, // can black out the rest of the page
+          width:400,
+          minWidth: 400,
+          open: function(){
+            $('.ui-widget-overlay').bind('click',function(){
+                dialog.dialog('close');
+            })},
+          buttons: {
+            "Search": function() {
+                toSearchResults("Plan", tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+            },
+            Cancel: function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+            //clear fields of  the first occurence of form that you find, which is the only form
+            form[0].reset(); 
+            whoCheckBox.checked = true;
+            whenCheckBox.checked = true; 
+            whereCheckBox.checked = true;
+            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+          }
     });
+
+        var dialog2 = $( "#dialog-form2" ).dialog({
+          autoOpen: false,
+          draggable: false,
+          modal: true, // can black out the rest of the page
+          width:400,
+          minWidth: 400,
+          open: function(){
+            $('.ui-widget-overlay').bind('click',function(){
+                dialog2.dialog('close');
+            })},
+          buttons: {
+            "Search": function() {
+                toSearchResults("Find", tip, whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2);
+            },
+            Cancel: function() {
+              dialog2.dialog( "close" );
+            }
+          },
+          close: function() {
+            //clear fields of  the first occurence of form that you find, which is the only form
+            form2[0].reset(); 
+            whoCheckBox2.checked = true;
+            whenCheckBox2.checked = true; 
+            whereCheckBox2.checked = true;
+            setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2);
+          }
+        });
 
     return [whoCheckBox, whenCheckBox, whereCheckBox, numPeople,numAdditionalPeople, fromDate, toDate, destination, dialog, findPlanDropDown];
 };
