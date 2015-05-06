@@ -32,6 +32,16 @@
             min: 1
         });
 
+        var miles = $( "#miles");
+        miles.spinner({
+            min: 1
+        });
+
+        var miles2 = $( "#miles2");
+        miles2.spinner({
+            min: 1
+        });
+
         var whoCheckBox2 = $("#whoCheckBox2");
         var whenCheckBox2 = $("#whenCheckBox2");
         var whereCheckBox2 = $("#whereCheckBox2");
@@ -130,14 +140,14 @@
         var destination = $( "#destination");
         var destination2 = $( "#destination2");
         //Things are initially disabled
-        setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
-        setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2);
+        setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, miles);
+        setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2, miles2);
         whereCheckBox.click(function() {
-            destinationFunction(whereCheckBox,destination);
+            destinationFunction(whereCheckBox,destination, miles);
         });
 
         whereCheckBox2.click(function() {
-            destinationFunction(whereCheckBox2,destination2);
+            destinationFunction(whereCheckBox2,destination2, miles2);
         });
 
         $( "input[type=submit]").button().click(function( event ) {
@@ -173,7 +183,7 @@
             whoCheckBox.checked = true;
             whenCheckBox.checked = true; 
             whereCheckBox.checked = true;
-            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, miles);
           }
 	});
 
@@ -201,7 +211,7 @@
             whoCheckBox2.checked = true;
             whenCheckBox2.checked = true; 
             whereCheckBox2.checked = true;
-            setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2);
+            setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2, miles2);
           }
         });
 
@@ -258,21 +268,12 @@
 	left: 9.75%;
     }
 
-    #numPeople, #numAdditionalPeople {
+    #numPeople, #numAdditionalPeople, #numPeople2, #numAdditionalPeople2 , #miles, #miles2 {
         width: 50px;
         margin: 3px;
     }
 
-    #toDate, #fromDate {
-        width :165px;
-    }
-
-    #numPeople2, #numAdditionalPeople2 {
-        width: 50px;
-        margin: 3px;
-    }
-
-    #toDate2, #fromDate2 {
+    #toDate, #fromDate, #toDate2, #fromDate2  {
         width :165px;
     }
 
@@ -369,6 +370,7 @@
 
     <label >Where: </label><input id= "whereCheckBox" type="checkbox" name="where" checked><label for="whereCheckBox" id = "whereLabel">Anywhere </label>
     <fieldset >
+        <label for="miles">within </label> <input type="text" id="miles" value ="1" name="numAdditionalPeople" ><label for="miles"> mile(s) of </label> 
         <input type="text" id="destination" title= "Enter a Mountain Name, City, State, or Zipcode"  value="" >
     </fieldset>
 
@@ -409,6 +411,7 @@
 
     <label >Where: </label><input id= "whereCheckBox2" type="checkbox" name="where" checked><label for="whereCheckBox" id = "whereLabel2">Anywhere </label>
     <fieldset >
+        <label for="miles2">within </label> <input type="text" id="miles2" value ="1" name="numAdditionalPeople" ><label for="miles2"> mile(s) of </label> 
         <input type="text" id="destination2" title= "Enter a Mountain Name, City, State, or Zipcode"  value="" >
     </fieldset>
 
