@@ -171,7 +171,7 @@
             })},
           buttons: {
             "Create": function() {
-                toSearchResults("Plan", tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+                toSearchResults("Plan", tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, false);
             },
             Cancel: function() {
               dialog.dialog( "close" );
@@ -199,7 +199,7 @@
             })},
           buttons: {
             "Search": function() {
-                toSearchResults("Find", tip, whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2);
+                toSearchResults("Find", tip, whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2, true);
             },
             Cancel: function() {
               dialog2.dialog( "close" );

@@ -110,7 +110,7 @@ function openCreateTrip() {
 }
 
 
-var toSearchResults = function(findPlan, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
+var toSearchResults = function(findPlan, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, load) {
     if (allFieldsAnswered(findPlan, numPeople, numAdditionalPeople, toDate, fromDate, destination, tip, whoCheckBox, whenCheckBox, whereCheckBox)) {
         var selectedItem = findPlan;
         // mad hacking with global variables
@@ -129,7 +129,12 @@ var toSearchResults = function(findPlan, tip, whoCheckBox, numPeople, numAdditio
         
         //console.log([findPlan, who,when,where]);
         // TODO: show matt's page
-        load_matt();
+	if(load){
+            load_matt();
+	}
+	else{
+	    document.location = "trip.html?Rock%20Climbr&Mount%20Rushmore,%20Keystone,%20SD";
+	}
 
     }
 };
