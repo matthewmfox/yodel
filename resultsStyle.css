@@ -58,14 +58,20 @@
     left: 12.5%;
     top: 75px;
     color: white;
-    font-size: 185%
+    font-size: 185%;
+    font-style: underline;
 }
 #edit{
     position: absolute;
     left: 77%;
     top: 75px;
     color: white;
-    font-size: 175%    
+    font-size: 175%;    
+    text-decoration: underline;
+}
+
+#edit:hover {
+    cursor: pointer;
 }
 
 
