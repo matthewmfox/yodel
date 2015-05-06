@@ -92,7 +92,6 @@ function addTip(tip , alert) {
 }
 
 function openCreateTrip() {
-    console.log("here");
     $("#findPeople").show();
     $("#findPeople").css("display", "inline-block");
     $("#findPeople").css("margin-left", "5px");
