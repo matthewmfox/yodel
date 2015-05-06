@@ -41,7 +41,7 @@ $(function () {
     var home = $("#logo").button();
    
     home.click(function() {
-       document.location = '../searchForm.html';	    
+       document.location = '../searchResults.html';	    
     });
 
     $("#search").geocomplete();
