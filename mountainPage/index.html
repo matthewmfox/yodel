@@ -20,6 +20,7 @@ The page body will display:
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="../jquery-ui-1.11.4.custom/jquery-ui.min.css">
 
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="../jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="../jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="../jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
@@ -28,8 +29,39 @@ The page body will display:
       $(document).ready(function() {
         var thisUrl = window.location.href;
         $("#mtnNameText").text(decodeURIComponent(thisUrl.substring(thisUrl.indexOf("?") + 1, thisUrl.length)));
+        var mtnNameText = $("#mtnNameText").text();
+
         $("#createTripBtn").button();
         $("#postReviewBtn").button();
+        
+
+        function initialize() {
+          var mapCenter;
+          var x;
+          var mapCanvas = document.getElementById('map-canvas');
+          switch(mtnNameText) {
+            case "Pico Isabel de Torres, Puerto Plata, DR":
+              mapCenter = new google.maps.LatLng(19.7643, -70.7105);
+              break;
+            case "Kresge Auditorium, Cambridge, MA":
+              mapCenter = new google.maps.LatLng(42.3581, -71.0951);
+              break;
+            case "Mount Kilimanjaro, Tanzania":
+              mapCenter = new google.maps.LatLng(3.0758, 37.3533);
+              break;
+            case "Mount Rainier, WA":
+              mapCenter = new google.maps.LatLng(46.8529, -121.7604);
+              break;
+          }
+          console.log(mtnNameText);
+          var mapOptions = {
+            center: mapCenter,
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(mapCanvas, mapOptions)
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
       })
     </script>
   </head>
@@ -83,7 +115,7 @@ The page body will display:
         </div>
         <div id="locationContent">
           <div id="mapContent">
-            <div id="mapImg"></div>
+            <div id="map-canvas"></div>
             <div id="directionsText"></div>
           </div> 
         </div>

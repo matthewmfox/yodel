@@ -23,26 +23,25 @@ section {
 #mtnCoverPhoto {
 	width: 100%;
 	position: relative;
+	background-color: grey;
 }
 
 #mtnLabelContainer {
 	display: inline-block;
 	background-color: grey;
 	opacity: 1;
-
 	width: 100%;
-	height: 100px;
 	position: relative;
 }
 
 #mtnNameSection {
 	float: left;
-	padding: 10px 25px 10px;
+	padding: 10px 0px 10px 25px;
 	vertical-align: middle;
 	background-color: grey;
 	opacity: 1;
-
-	height: 80px;
+	width: 40%;
+	height: 100px;
 	position: relative;
 }
 
@@ -61,6 +60,9 @@ section {
   		transform: translateY(-50%);
 }
 
+.clear {
+	clear: both;
+}
 /** Create Trip Button **/
 #createTripSection {
 	float: left;
@@ -123,8 +125,9 @@ section {
 }
 
 #reviewTable {
-	width: 100%;
+	width: auto;
 	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #blankTextBox {
@@ -152,24 +155,26 @@ section {
 	width: 100px;
 }
 
-#staticText {
-
-}
-
-#reviewText {
-
-}
-
 /** Geo-Location Styling **/
 #locationContent {
-
+	position: relative;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	height: 97%;
+	width: 45%;
+	float: right;
+	background-color: gray;
+	opacity: 0.89;
 }
 
 #mapContent {
 
 }
 
-#mapImg {
+#map-canvas {
+	width: 95%;
+	height: 50%;
+	background-color: #CCC;
 
 }
 
