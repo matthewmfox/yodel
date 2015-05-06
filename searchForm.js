@@ -28,11 +28,13 @@ function calendarFunction(whenCheckBox, toDate, fromDate) {
     } 
 };
 
-function destinationFunction(whereCheckBox,destination) {
+function destinationFunction(whereCheckBox,destination, numMiles) {
     if (!whereCheckBox[0].checked) {
         destination.prop('disabled', false);
+        numMiles.spinner("enable");
     } else {
         destination.prop('disabled', true) ;
+        numMiles.spinner("disable");
     }
 };
 
@@ -72,14 +74,14 @@ function allFieldsAnswered(findPlanDropDown, numPeople, numAdditionalPeople, toD
         return true;
     };
 
-function setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
+function setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, numMiles) {
     peopleFunction(whoCheckBox,numPeople,numAdditionalPeople);
     weekfromNow = new Date();
     weekfromNow.setDate(weekfromNow.getDate() +7);
     fromDate.datepicker('setDate', new Date());
     toDate.datepicker('setDate', weekfromNow);
     calendarFunction(whenCheckBox, toDate, fromDate);
-    destinationFunction(whereCheckBox,destination);
+    destinationFunction(whereCheckBox,destination, numMiles);
 };
 
 function addTip(tip , alert) {
@@ -101,6 +103,7 @@ function openCreateTrip() {
     }
     $("#numPeople").spinner( "enable" );
     $("#numAdditionalPeople").spinner( "enable");
+    $("#miles").spinner( "enable" );
     $("#toDate").datepicker( "option", "disabled" , false );
     $("#fromDate").datepicker(  "option", "disabled" , false );
     $( "#destination" ).prop('disabled', false) ;
@@ -156,7 +159,7 @@ function load_matt(){
 //         for (i=0; i<showItems.length; i++) {
 //             $(showItems[i]).show();
 //         }
-//         setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+//         setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, numMiles);
 //     }
 // };
 
@@ -166,6 +169,9 @@ function getAllTheThings() {
     var whereCheckBox = $("#whereCheckBox");
     var numPeople = $( "#numPeople");
     var numAdditionalPeople = $( "#numAdditionalPeople"); 
+    var miles = $( "#miles");
+    var miles2 = $( "#miles2");
+   
 
     var fromDate = $( "#fromDate" ).datepicker({
         defaultDate: "+1w",
@@ -220,7 +226,7 @@ function getAllTheThings() {
             whoCheckBox.checked = true;
             whenCheckBox.checked = true; 
             whereCheckBox.checked = true;
-            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination);
+            setAllFields(whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination, numMiles);
           }
     });
 
@@ -248,7 +254,7 @@ function getAllTheThings() {
             whoCheckBox2.checked = true;
             whenCheckBox2.checked = true; 
             whereCheckBox2.checked = true;
-            setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2);
+            setAllFields(whoCheckBox2, numPeople2, numAdditionalPeople2, whenCheckBox2, fromDate2, toDate2, whereCheckBox2, destination2, numMiles2);
           }
         });
 
@@ -298,7 +304,7 @@ function loadSearchResults() {
         } else {
             // TODO unckeck the check box
             // TODO set the location
-            destinationFunction(whereCheckBox,destination);
+            destinationFunction(whereCheckBox,destination, numMiles);
         }
     }
 };
