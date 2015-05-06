@@ -44,16 +44,23 @@
                 });
 
                 $("#postCommentBtn").button();
-            }
+        }
             
 	    toolbarFunction();
 
             var home = $("#logo").button();
 
-	    home.click(function() {
+
+
+	home.click(function() {
 		document.location = 'searchForm.html';	    
 	});
-	 var createTripBtn;
+	
+	var thisUrl = window.location.href;
+    $("#name").text(decodeURIComponent(thisUrl.substring(thisUrl.indexOf("?") + 1, thisUrl.indexOf("&"))));
+    $("#btnMtnName").text(decodeURIComponent(thisUrl.substring(thisUrl.indexOf("&") + 1, thisUrl.length)));
+
+	var createTripBtn;
 
 	
 	var postCommentBtn = $("#postCommentBtn");
