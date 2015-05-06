@@ -44,6 +44,8 @@ $(function () {
        document.location = '../searchForm.html';	    
     });
 
+    $("#search").geocomplete();
+
 
 
 	var postReviewBtn = $("#postReviewBtn");

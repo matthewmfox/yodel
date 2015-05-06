@@ -3,6 +3,10 @@ html, body, button * {
 	display: block;
 }
 
+#search{
+    color: black;
+}
+
 * {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
 	color: white;
