@@ -1,36 +1,10 @@
 function toolbarFunction() {
-    $("#profile").button({
-        icons: {
-            primary: "ui-icon-person"
-        },
-        text: false
-    });
 
     $("#logo").button({
         icons: {
             primary: "ui-icon-image"
         },
         text: true
-    });
-    $("#messages").button({
-        icons: {
-            primary: "ui-icon-mail-closed"
-        },
-        text: false
-    });
-
-    $("#settings").button({
-        icons: {
-            primary: "ui-icon-gear"
-        },
-        text: false
-    });
-   
-    $("#notifications").button({
-        icons: {
-            primary: "ui-icon-info"
-        },
-        text: false
     });
 };
 
@@ -116,6 +90,23 @@ function addTip(tip , alert) {
         tip.text("");
         }, 2000 );
 }
+
+function openCreateTrip() {
+    console.log("here");
+    $("#findPeople").show();
+    $("#findPeople").css("display", "inline-block");
+    $("#findPeople").css("margin-left", "5px");
+    var hideItems = ["#whoCheckBox", "#whenCheckBox","#whereCheckBox", "#whoLabel","#whenLabel","#whereLabel"]
+    for (i=0; i<hideItems.length; i++) {
+        $(hideItems[i]).hide();
+    }
+    $("#numPeople").spinner( "enable" );
+    $("#numAdditionalPeople").spinner( "enable");
+    $("#toDate").datepicker( "option", "disabled" , false );
+    $("#fromDate").datepicker(  "option", "disabled" , false );
+    $( "#destination" ).prop('disabled', false) ;
+}
+
 
 var toSearchResults = function(findPlan, tip, whoCheckBox, numPeople, numAdditionalPeople, whenCheckBox, fromDate, toDate, whereCheckBox, destination) {
     if (allFieldsAnswered(findPlan, numPeople, numAdditionalPeople, toDate, fromDate, destination, tip, whoCheckBox, whenCheckBox, whereCheckBox)) {
